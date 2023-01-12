@@ -9,12 +9,16 @@
         "*.ts"
       ],
       "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/recommended--extra",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "no-console": "error",
+        "no-debugger": "error",
+        "no-eval": "error",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -40,7 +44,32 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        "@angular-eslint/template/i18n": [
+          "error",
+          {
+            "checkId": false,
+            "checkText": true,
+            "checkAttributes": false,
+            "ignoreTags": ["mat-icon"]
+          }
+        ],
+        "@angular-eslint/template/accessibility-elements-content": "error",
+        "@angular-eslint/template/accessibility-valid-aria": "error",
+        "@angular-eslint/template/no-distracting-elements": "error",
+        "@angular-eslint/template/no-call-expression": "error",
+        "@angular-eslint/template/use-track-by-function": "error"
+      }
+    },
+    {
+      "files": [
+        "pidg-app.component.ts"
+      ],
+      "rules": {
+        "@angular-eslint/component-class-suffix": ["error", {
+          "suffixes": ["Component", "App"]
+        }]
+      }
     }
   ]
 }
